@@ -1,80 +1,123 @@
-const productSettings = {
-    "Netflix": {
-        title: "Netflix",
-        description: "Enjoy unlimited movies and TV shows.",
-        price: [
-            "Profile Shared 14 Hari - Rp 15.000",
-            "Profile Private 14 Hari - Rp 20.000",
-            "Profile Shared 30 Hari - Rp 23.000",
-            "Profile Private 30 Hari - Rp 35.000",
-            "Profile Private 30 Hari (2 Devices) - Rp 40.000",
-            "Profile Shared 3 Bulan - Rp 57.500",
-            "Profile Private 3 Bulan - Rp 89.000",
-            "Profile Private 3 Bulan (2 Devices) - Rp 107.000"
-        ].join('\n')
+const products = [
+    {
+        name: 'Netflix',
+        description: 
+            'Akses streaming Netflix dengan harga terjangkau:\n\n' +
+            'Profile Shared 14 Hari: Rp 15.000\n\n' +
+            'Profile Private 14 Hari: Rp 20.000\n\n' +
+            'Profile Shared 30 Hari: Rp 23.000\n\n' +
+            'Profile Private 30 Hari: Rp 35.000\n\n' +
+            'Profile Private 30 Hari (2 Devices): Rp 40.000\n\n' +
+            'Profile Shared 3 Bulan: Rp 57.500\n\n' +
+            'Profile Private 3 Bulan: Rp 89.000\n\n' +
+            'Profile Private 3 Bulan (2 Devices): Rp 107.000',
+        button1: {
+            text: 'Order Now',
+            link: 'https://wa.me/message/2MOJNXNC45Y5E1'
+        },
+        button2: {
+            text: 'More Info',
+            link: '#',  // Adjust this link to close the modal
+            action: 'closeModal'
+        }
     },
-    "Canva Pro": {
-        title: "Canva Pro",
-        description: "Access premium design tools and content.",
-        price: [
-            "Canvaa Pro Anggota (1 Bulan) - Rp 8.500",
-            "Canvaa Pro Anggota (2 Bulan) - Rp 12.000",
-            "Canvaa Pro Desainer (1 Bulan) - Rp 9.500",
-            "Canva Education (1 Tahun) - Rp 16.500"
-        ].join('\n')
+    {
+        name: 'Canva Pro',
+        description: 
+            'Dapatkan semua fitur premium Canva dengan harga murah:\n\n' +
+            'Canva Pro Anggota (1 Bulan): Rp 8.500\n\n' +
+            'Canva Pro Anggota (2 Bulan): Rp 12.000\n\n' +
+            'Canva Pro Desainer (1 Bulan): Rp 9.500\n\n' +
+            'Canva Education (1 Tahun): Rp 16.500',
+        button1: {
+            text: 'Order Now',
+            link: 'https://wa.me/message/2MOJNXNC45Y5E1'
+        },
+        button2: {
+            text: 'More Info',
+            link: '#',
+            action: 'closeModal'
+        }
     },
-    "YouTube Premium": {
-        title: "YouTube Premium",
-        description: "Watch ad-free videos and access YouTube Music.",
-        price: [
-            "IndividuPlan 3 Bulan - Rp 24.500"
-        ].join('\n')
+    {
+        name: 'YouTube Premium',
+        description: 
+            'Nikmati YouTube tanpa iklan dan akses ke YouTube Music:\n\n' +
+            'Individu Plan 3 Bulan: Rp 24.500',
+        button1: {
+            text: 'Order Now',
+            link: 'https://wa.me/message/2MOJNXNC45Y5E1'
+        },
+        button2: {
+            text: 'More Info',
+            link: '#',
+            action: 'closeModal'
+        }
     },
-    "Vidio Premier": {
-        title: "Vidio Premier",
-        description: "Stream exclusive shows and movies.",
-        price: [
-            "Video Premier Platinum (1 Bulan) - Rp 16.000",
-            "Video Premier Platinum (1 Bulan) - Rp 18.000",
-            "Video Premier Platinum (1 Bulan) - Rp 29.000"
-        ].join('\n')
+    {
+        name: 'Vidio Premier',
+        description: 
+            'Streaming acara TV dan film favorit Anda di Vidio Premier:\n\n' +
+            'Vidio Premier Platinum (1 Bulan): Rp 16.000\n\n' +
+            'Vidio Premier Platinum (2 Bulan): Rp 18.000\n\n' +
+            'Vidio Premier Platinum (3 Bulan): Rp 29.000',
+        button1: {
+            text: 'Order Now',
+            link: 'https://wa.me/message/2MOJNXNC45Y5E1'
+        },
+        button2: {
+            text: 'More Info',
+            link: '#',
+            action: 'closeModal'
+        }
     },
-    "Spotify Premium": {
-        title: "Spotify Premium",
-        description: "Listen to music ad-free and offline.",
-        price: [
-            "Spotify Premium 1 Bulan - Rp 61.150",
-            "Spotify Premium 3 Bulan - Rp 175.000",
-            "Spotify Premium 6 Bulan - Rp 313.000"
-        ].join('\n')
+    {
+        name: 'Spotify Premium',
+        description: 
+            'Dengarkan musik tanpa iklan di Spotify Premium:\n\n' +
+            'Spotify Premium 1 Bulan: Rp 61.150\n\n' +
+            'Spotify Premium 3 Bulan: Rp 175.000\n\n' +
+            'Spotify Premium 6 Bulan: Rp 313.000',
+        button1: {
+            text: 'Order Now',
+            link: 'https://wa.me/message/2MOJNXNC45Y5E1'
+        },
+        button2: {
+            text: 'More Info',
+            link: '#',
+            action: 'closeModal'
+        }
     },
-    "Bstation": {
-        title: "Bstation",
-        description: "Stream anime and other Japanese shows.",
-        price: [
-            "BsTation Premium 3 Bulan - Rp 13.500",
-            "BsTation Premium 1 Tahun - Rp 17.000"
-        ].join('\n')
+    {
+        name: 'Bstation',
+        description: 
+            'Streaming video anime dan konten kreator di Bstation:\n\n' +
+            'Bstation Premium 3 Bulan: Rp 13.500\n\n' +
+            'Bstation Premium 1 Tahun: Rp 17.000',
+        button1: {
+            text: 'Order Now',
+            link: 'https://wa.me/message/2MOJNXNC45Y5E1'
+        },
+        button2: {
+            text: 'More Info',
+            link: '#',
+            action: 'closeModal'
+        }
     }
-};
+];
 
-// Function to display product details
-function showProductDetails(productName) {
-    const product = productSettings[productName];
-    if (product) {
-        const modalContent = `
-            <h2>${product.title}</h2>
-            <p>${product.description}</p>
-            <pre>${product.price}</pre>
-            <button onclick="orderProduct('${productName}')">Order</button>
-            <button onclick="closeModal()">Close</button>
-        `;
-        document.getElementById('modal').innerHTML = modalContent;
-        document.getElementById('modal').style.display = 'block';
-    } else {
-        console.error('Product not found:', productName);
+// Function to handle 'More Info' button action
+function handleMoreInfoAction(action) {
+    if (action === 'closeModal') {
+        // Code to close the modal goes here
     }
 }
 
-// Sample usage to show a product detail
-showProductDetails("Netflix");
+// Sample usage
+products.forEach(product => {
+    console.log(product.name);
+    console.log(product.description);
+    console.log('Order Now link:', product.button1.link);
+    console.log('More Info action:', product.button2.action);
+});
+a
