@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pilih Produk</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            box-sizing: border-box;
+        }
+        .container h2 {
+            font-size: 24px;
+            color: #6b6b6b;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+        }
+        .product-card {
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 10px;
+            text-align: center;
+            transition: border-color 0.3s ease;
+            cursor: pointer;
+            background-color: #fff;
+        }
+        .product-card:hover {
+            border-color: #6200ee;
+        }
+        .product-card p {
+            margin: 5px 0;
+            font-size: 14px;
+            color: #333;
+        }
+        .product-card .price {
+            font-weight: bold;
+            color: #6200ee;
+        }
+        .product-card.selected {
+            border-color: #6200ee;
+            background-color: #f0f0ff;
+        }
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        .buttons button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 10px;
+            flex: 1;
+            margin-right: 10px;
+        }
+        .buttons .order-btn {
+            background-color: #6200ee;
+            color: #fff;
+        }
+        .buttons .back-btn {
+            background-color: #e0e0e0;
+            color: #333;
+        }
+        @media (max-width: 600px) {
+            .buttons button {
+                margin-right: 0;
+            }
+        }
+        #error-message {
+            display: none;
+            color: #d32f2f;
+            background-color: #ffebee;
+            padding: 10px;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Pilih Produk</h2>
+        <div class="product-grid">
+            <div class="product-card" data-description="Canvaa Pro Anggota - 1 Bulan - Rp 8.500">
+                <p>Canvaa Pro Anggota</p>
+                <p>1 Bulan [ Garansi 1 Bulan ]</p>
+                <p class="price">Rp 8.500</p>
+            </div>
+            <div class="product-card" data-description="Canvaa Pro Anggota - 2 Bulan - Rp 12.000">
+                <p>Canvaa Pro Anggota</p>
+                <p>2 Bulan [ Garansi 2 Bulan ]</p>
+                <p class="price">Rp 12.000</p>
+            </div>
+            <div class="product-card" data-description="Canvaa Pro Desainer - 1 Bulan - Rp 9.500">
+                <p>Canvaa Pro Desainer</p>
+                <p>1 Bulan [ Garansi 1 Bulan ]</p>
+                <p class="price">Rp 9.500</p>
+            </div>
+            <div class="product-card" data-description="Canvaa Education - 1 Tahun - Rp 16.500">
+                <p>Canvaa Education</p>
+                <p>1 Tahun [ Garansi 6 Bulan ]</p>
+                <p class="price">Rp 16.500</p>
+            </div>
+        </div>
+        <div class="buttons">
+            <button class="back-btn" onclick="window.location.href='../index.html'">Back</button>
+            <button class="order-btn" id="orderBtn">Order</button>
+        </div>
+        <div id="error-message">Silakan pilih salah satu produk terlebih dahulu.</div>
+    </div>
+    <script>
+        const productCards = document.querySelectorAll('.product-card');
+        let selectedProduct = null;
+
+        productCards.forEach(card => {
+            card.addEventListener('click', () => {
+                if (selectedProduct) {
+                    selectedProduct.classList.remove('selected');
+                }
+                card.classList.add('selected');
+                selectedProduct = card;
+                document.getElementById('error-message').style.display = 'none';
+            });
+        });
+
+        document.getElementById('orderBtn').addEventListener('click', () => {
+            if (selectedProduct) {
+                const description = selectedProduct.getAttribute('data-description');
+                const whatsappUrl = `https://wa.me/6282389924037?text=Deskripsi%20produk%20yang%20dibeli%3A%0A${encodeURIComponent(description)}`;
+                window.location.href = whatsappUrl;
+            } else {
+                document.getElementById('error-message').style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>
