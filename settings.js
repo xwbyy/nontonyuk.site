@@ -8,9 +8,9 @@ const products = [
             'Profile Shared 30 Hari: Rp 23.000\n\n' +
             'Profile Private 30 Hari: Rp 35.000\n\n' +
             'Profile Private 30 Hari (2 Devices): Rp 40.000\n\n' +
-            'Profile Shared 3 Bulan: Rp 58.500\n\n' +
-            'Profile Private 3 Bulan: Rp 90.000\n\n' +
-            'Profile Private 3 Bulan (2 Devices): Rp 110.000',
+            'Profile Shared 3 Bulan: Rp 57.500\n\n' +
+            'Profile Private 3 Bulan: Rp 89.000\n\n' +
+            'Profile Private 3 Bulan (2 Devices): Rp 107.000',
         button1: {
             text: 'Order Now',
             link: 'https://wa.me/message/2MOJNXNC45Y5E1'
